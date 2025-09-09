@@ -1,0 +1,17 @@
+{
+  "name": "freeflow-backend-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Serverless backend for FreeFlow (Vercel)",
+  "license": "MIT",
+  "engines": { "node": ">=18.17" },
+  "scripts": {
+    "dev": "vercel dev --listen 3001",
+    "build": "echo 'nothing to build'",
+    "test": "node -e \"console.log('OK')\""
+  },
+  "dependencies": {
+    "openai": "^4.56.0"
+  }
+}
