@@ -1,9 +1,10 @@
-// /api/health.js
-export default async function handler(_req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  return res.status(200).json({
-    status: 'ok',
-    service: 'freeflow-backend',
-    ts: new Date().toISOString()
-  });
-}
+cat > api/health.js <<'EOF'
+const { setCors, handlePreflight } = require('../lib/cors');
+
+module.exports = (req, res) => {
+  if (handlePreflight(req, res)) return; // Obsłuż OPTIONS
+
+  setCors(res);
+  res.status(200).json({ ok: true, msg: "Backend działa poprawnie ✅" });
+};
+EOF
